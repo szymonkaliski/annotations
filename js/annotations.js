@@ -1,4 +1,4 @@
-/* global $ Highcharts document window module:true */
+/* global Highcharts document window module:true */
 (function (factory) {
 	if (typeof module === 'object' && module.exports) {
 		module.exports = factory;
@@ -532,7 +532,7 @@
 				title.add(group);
 			}
 			if ((allowDragX || allowDragY) && !hasEvents) {
-				$(group.element).on('mousedown', function (e) {
+				group.element.addEventListener('mousedown', function (e) {
 					annotation.events.storeAnnotation(e, annotation, chart);
 					annotation.events.select(e, annotation);
 				});
@@ -542,7 +542,7 @@
 				
 				attachCustomEvents(group, options.events);
 			} else if (!hasEvents) {
-				$(group.element).on('mousedown', function (e) {
+				group.element.addEventListener('mousedown', function (e) {
 					annotation.events.select(e, annotation);
 				});
 				attachCustomEvents(group, options.events);
